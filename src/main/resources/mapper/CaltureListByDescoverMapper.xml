@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduate.app.mapper.CaltureListByDescoverMapper">
+<!--/**
+  * 查询文物目录
+  * @return
+  */
+ List<CaltureList> getAllCalture();-->
+<select id="gCalture1" resultType="CaltureList">
+  select * from calture_list
+  where descover_from=#{frame}
+</select>
+</mapper>

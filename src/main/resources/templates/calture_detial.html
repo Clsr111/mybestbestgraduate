@@ -1,0 +1,150 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Peak a Personal Portfolio Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+  <!--fonts-->
+  <link href='http://fonts.googleapis.com/css?family=Jockey+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!--//fonts-->
+  <link href="css/bootstrap1.css" th:href="@{/css/bootstrap1.css}"  rel="stylesheet">
+  <link href="css/style1.css"  th:href="@{/css/style1.css}" rel="stylesheet" type="text/css" media="all" />
+  <!-- for-mobile-apps -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Peak Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <!-- //for-mobile-apps -->
+  <!-- js -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="js/modernizr.custom.97074.js"></script>
+  <!-- js -->
+  <!-- start-smoth-scrolling -->
+  <script type="text/javascript" src="js/move-top.js" th:src="@{/js/move-top.js}"></script>
+  <script type="text/javascript" src="js/easing.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $(".scroll").click(function(event){
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+      });
+    });
+  </script>
+  <!-- start-smoth-scrolling -->
+  <style>
+    .hh{display: inline;}
+  </style>
+</head>
+<body>
+<!-- banner -->
+<div id="home" class="banner">
+  <div class="container">
+    <div class="banner-grids">
+      <div class="col-md-4 navigation">
+        <div class="nav-left">
+          <div class=class="scroll">
+            <h1 th:text="${calture.caltureName}"></h1>
+          </div>
+        </div>
+        <!--
+        <div class="nav-right">
+          <span class="menu"><img src="images/menu.png" alt="" /></span>
+          <nav class="cl-effect-1">
+            <ul class="nav1">
+              <li><a class="scroll" href="#home">Home</a></li>
+              <li><a class="scroll" href="#about">About</a></li>
+              <li><a class="scroll" href="#portfolio">Portfolio</a></li>
+              <li><a class="scroll" href="#services">Services</a></li>
+              <li><a class="scroll" href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+          -->
+          <!-- script for menu -->
+          <script>
+            $( "span.menu" ).click(function() {
+              $( "ul.nav1" ).slideToggle( 300, function() {
+                // Animation complete.
+              });
+            });
+          </script>
+          <!-- //script for menu -->
+
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div  align="center">
+        <img  style="width: 600.38px;height: 450.38px;"  th:src="'/image/'+${calture.calturePicture}"  >
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<!-- //banner -->
+<!-- about -->
+<div id="about" class="about">
+  <div class="container">
+    <div class="about-info">
+      <h3>ABOUT ME</h3>
+      <h4>文物的大小及文物简介</h4>
+      <p th:text="大小+ ${calture.caltureSize}"></p>
+      <p th:text="${calture.caltureDescribe}"></p>
+    </div>
+    <div class="about-grids">
+      <div class="col-md-6 about-grid">
+        <h4 class="hh">现藏地点：</h4>
+        <h4 class="hh">秦始皇帝陵博物馆</h4>
+      </div>
+      <div class="col-md-6 about-grid">
+        <h4 class="hh">发现地点：</h4>
+        <h4 class="hh" th:text="${caultureDTO.discoverPlace.placeName}"></h4>
+      </div>
+      <div class="col-md-6 about-grid">
+        <h4 class="hh">文物类别：</h4>
+        <h4 class="hh" th:text="${caultureDTO.classify.className}"></h4>
+      </div>
+      <div class="col-md-6 about-grid">
+        <h4 class="hh">文物作用象征：</h4>
+        <h4 class="hh" th:text="${caultureDTO.functionAndSymbol.symbolName}"></h4>
+      </div>
+      <div class="col-md-6 about-grid">
+        <h4 class="hh">文物制作工艺：</h4>
+        <h4 class="hh" th:text="${caultureDTO.madeArtifact.artifactName}"></h4>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+<!-- //about -->
+<!-- my skills -->
+
+<!-- footer -->
+<div class="copy-right">
+  <div class="container">
+    <p> &copy; 2019 Photostat. All Rights Reserved | Design by  <a href="http://w3layouts.com/"> Clsr</a></p>
+  </div>
+</div>
+<!-- footer -->
+<!-- smooth scrolling -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    /*
+      var defaults = {
+      containerID: 'toTop', // fading element id
+      containerHoverID: 'toTopHover', // fading element hover id
+      scrollSpeed: 1200,
+      easingType: 'linear'
+      };
+    */
+    $().UItoTop({ easingType: 'easeOutQuart' });
+  });
+</script>
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- //smooth scrolling -->
+</body>
+</html>

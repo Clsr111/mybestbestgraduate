@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduate.app.mapper.CaltureListMapper">
+
+  <!--/**
+   * 查询文物目录
+   * @return
+   */
+  List<CaltureList> getAllCalture();-->
+  <select id="getAllCalture" resultType="CaltureList">
+    SELECT * FROM calture_list
+  </select>
+
+  <!--/**
+   *
+   * @param frame
+   * @return
+   */
+  CaltureList getCaltureByFrame(Integer frame);-->
+  <select id="getCaltureByFrame" resultType="CaltureList">
+    SELECT * FROM calture_list WHERE frame = #{frame}
+  </select>
+
+</mapper>

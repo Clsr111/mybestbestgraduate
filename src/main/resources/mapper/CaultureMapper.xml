@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduate.app.mapper.CaultureMapper">
+
+ <!--/**
+   * 获得DTO对象
+   * @param frame
+   * @return
+   */
+  CaultureDTO getCaultreDTOByFrame(@Param("frame") Integer frame);-->
+
+  <resultMap id="Calture" type="com.graduate.app.DTO.CaultureDTO">
+    <result property="caltureName" column="calture_name"></result>
+    <association property="classify" javaType="com.graduate.app.bean.Classify">
+      <result property="className" column="class_name"></result>
+    </association>
+    <association property="discoverPlace" javaType="com.graduate.app.bean.DiscoverPlace">
+      <result property="placeName" column="place_name"></result>
+    </association>
+    <association property="functionAndSymbol" javaType="com.graduate.app.bean.FunctionAndSymbol">
+      <result property="symbolName" column="symbol_name"></result>
+    </association>
+    <association property="madeArtifact" javaType="com.graduate.app.bean.MadeArtifact">
+      <result property="artifactName" column="artifact_name"></result>
+    </association>
+  </resultMap>
+  <select id="getCaultreDTOByFrame" resultMap="Calture">
+
+SELECT
+	*
+FROM
+	calture_list,
+	classify,
+	discover_place,
+	function_and_symbol,
+	made_artifact
+WHERE
+	calture_list.frame = #{frame}
+and calture_list.descover_from = discover_place.frame2
+and	calture_list.class_by = classify.frame1
+and calture_list.symbol = function_and_symbol.frame3
+AND	calture_list.made_by = made_artifact.frame4
+  </select>
+
+</mapper>
